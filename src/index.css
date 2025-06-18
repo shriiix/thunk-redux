@@ -1,69 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background: #333;
-  color: whitesmoke;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0f;
+    color: #f1f1f1;
+    overflow-x: hidden;
 }
 
 body {
-  min-height: 100vh;
-  font-size: 1.5rem;
-  padding: 0 10% 10%;
+    min-height: 100vh;
+    font-size: 1.1rem;
+    padding: 0 8% 3%;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a25 100%);
+    position: relative;
+}
+
+/* Subtle background pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 50px 100px, rgba(0, 255, 195, 0.1), transparent),
+        radial-gradient(1px 1px at 150px 200px, rgba(0, 214, 255, 0.08), transparent);
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+main {
+    max-width: 700px;
+    margin: 2rem auto;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #00ffc3, #00d6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    background: rgba(30, 30, 45, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin-bottom: 3rem;
+    position: relative;
 }
 
 input,
 textarea,
-button,
 select {
-  font: inherit;
-  margin-bottom: 1em;
+    background: rgba(20, 20, 35, 0.9);
+    color: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.9rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-family: inherit;
 }
 
-main {
-  max-width: 500px;
-  margin: auto;
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #00ffc3;
+    background: rgba(25, 25, 40, 0.95);
+    box-shadow: 0 0 0 3px rgba(0, 255, 195, 0.1);
 }
 
+input::placeholder,
+textarea::placeholder {
+    color: rgba(241, 241, 241, 0.5);
+}
+
+button {
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #00ffc3, #00d6ff);
+    color: #0a0a0f;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00d6ff, #00ffc3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 195, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Blog/Article Styling */
 section {
-  margin-top: 1em;
+    margin-top: 2rem;
 }
 
 article {
-  margin: 0.5em 0.5em 0.5em 0;
-  border: 1px solid whitesmoke;
-  border-radius: 10px;
-  padding: 1em;
+    margin: 1.5rem 0;
+    padding: 2rem;
+    background: rgba(25, 25, 40, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-h1 {
-  font-size: 3.5rem;
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 255, 195, 0.3);
 }
 
-p {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-  font-size: 1.2rem;
-  margin: 0.5em 0;
+article h2 {
+    color: #00ffc3;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+article h3 {
+    color: #00d6ff;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .postCredit {
-  font-size: 1rem;
+    font-size: 0.9rem;
+    color: rgba(204, 204, 204, 0.7);
+    margin-top: 1rem;
+    font-style: italic;
 }
 
+p {
+    line-height: 1.7;
+    font-size: 1rem;
+    margin: 1rem 0;
+    color: rgba(241, 241, 241, 0.9);
+}
+
+/* Reaction Buttons */
 .reactionButton {
-  margin: 0 0.25em 0 0;
-  background: transparent;
-  border: none;
-  color: whitesmoke;
-  font-size: 1rem;
+    margin: 0.5rem 0.5rem 0 0;
+    background: rgba(40, 40, 60, 0.8);
+    border: 1px solid rgba(0, 255, 195, 0.3);
+    border-radius: 20px;
+    color: #00ffc3;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.reactionButton:hover {
+    background: rgba(0, 255, 195, 0.2);
+    color: #ffffff;
+    transform: translateY(-1px);
+    border-color: #00ffc3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 0 4% 2%;
+        font-size: 1rem;
+    }
+    
+    main {
+        margin: 1rem auto;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    form, article {
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+    
+    input, textarea, select, button {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 3% 2%;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    form, article {
+        padding: 1.2rem;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(26, 26, 37, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #00ffc3, #00d6ff);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #00d6ff, #00ffc3);
+}
+
+/* Selection styling */
+::selection {
+    background: rgba(0, 255, 195, 0.3);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: rgba(0, 255, 195, 0.3);
+    color: #ffffff;
 }
